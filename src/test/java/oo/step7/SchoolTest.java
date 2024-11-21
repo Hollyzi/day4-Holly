@@ -32,6 +32,6 @@ public class SchoolTest {
         bob.join(klass);
         School school=new School(klass);
         school.startSchool();
-        assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am in class 1.");
+        assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a student. I am in class 1.");
     }
 }

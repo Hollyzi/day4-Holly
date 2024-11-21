@@ -38,9 +38,12 @@ public class Klass {
     }
 
     public boolean isLeader(Student student){
-        return Leader.equals(student);
+        return Leader==null?false:Leader.equals(student);
     }
 
+    public Person getMember() {
+        return member!=null?member:null;
+    }
 
     public void assignLeader(Student student) {
         if (student.getKlass() == this) {
