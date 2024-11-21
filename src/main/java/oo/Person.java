@@ -6,6 +6,8 @@ public class Person {
     protected String name;
     protected Integer id;
     protected Integer age;
+    protected String role;
+
 
     public Person(Integer id, String name, Integer age) {
         this.id = id;

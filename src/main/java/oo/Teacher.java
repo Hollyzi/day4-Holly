@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person{
 
-    public static final String ROLEINTRODUCTION = " I am a teacher. ";
-    public static final String CLASSINTRODUCTION = "I teach Class ";
+    public static final String ROLEINTRODUCTION = " I am a teacher.";
+    public static final String CLASSINTRODUCTION = " I teach Class %s.";
     List<Klass> klasses;
     public Teacher(Integer id, String name, Integer age) {
         super(id, name, age);
@@ -20,7 +20,8 @@ public class Teacher extends Person{
                 .map(klass -> klass.getNumber().toString())
                 .collect(Collectors.joining(", "))
             ;
-        return super.introduce()+ROLEINTRODUCTION+CLASSINTRODUCTION+klassString+'.';
+        String classIntroduction=this.klasses.size()==0?"":String.format(CLASSINTRODUCTION,klassString);
+        return super.introduce()+ROLEINTRODUCTION+classIntroduction;
     }
 
     public void assignTo(Klass klass){
