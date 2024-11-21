@@ -1,7 +1,5 @@
 package oo;
 
-import javax.management.relation.Role;
-
 public class Student extends Person{
     public static final String ROLE_INTRODUCTION = " I am a student.";
     public static final String CLASS_INTRODUCTION = " I am in class %d.";

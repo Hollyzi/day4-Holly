@@ -31,6 +31,7 @@ public class Teacher extends Person{
 
     public void assignTo(Klass klass){
         klasses.add(klass);
+        klass.attach(this);
     }
 
     public boolean belongsTo(Klass klass){

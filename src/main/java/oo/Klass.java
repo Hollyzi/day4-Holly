@@ -1,5 +1,6 @@
 package oo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,6 +15,7 @@ public class Klass {
     public Klass(Integer number){
         this.number=number;
         this.member=member;
+        this.members=new ArrayList<>();
     }
 
     public Integer getNumber() {
@@ -41,6 +43,10 @@ public class Klass {
         return Leader==null?false:Leader.equals(student);
     }
 
+    public List<Person> getMembers() {
+        return members;
+    }
+
     public Person getMember() {
         return member!=null?member:null;
     }
@@ -63,7 +69,7 @@ public class Klass {
 
     public void attach(Person person) {
         this.member=person;
-//        this.members.add(person);
+        this.members.add(person);
 
     }
 }

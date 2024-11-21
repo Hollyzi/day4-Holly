@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.List;
 import oo.Klass;
 import oo.School;
 import oo.Student;
@@ -33,5 +32,17 @@ public class SchoolTest {
         School school=new School(klass);
         school.startSchool();
         assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a student. I am in class 1.");
+    }
+
+    @Test
+    public void should_introduce_when_school_has_class_and_student_and_teacher_call_start(){
+        Klass klass=new Klass(1);
+        Student bob = new Student(1, "Bob", 18);
+        bob.join(klass);
+        Teacher jerry = new Teacher(1, "Jerry", 21);
+        jerry.assignTo(klass);
+        School school=new School(klass);
+        school.startSchool();
+        assertThat(systemOut()).containsSequence("My name is Bob. I am 18 years old. I am a student. I am in class 1","My name is Jerry. I am 21 years old. I am a teacher. I teach Class 1.");
     }
 }
