@@ -10,6 +10,10 @@ public class Student extends Person{
         return super.introduce()+ " I am a student. I am in class "+klass.getNumber()+".";
     }
 
+    public Klass getKlass() {
+        return klass;
+    }
+
     public boolean isIn(Klass klass){
         return this.klass==klass;
     };
