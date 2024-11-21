@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person{
 
+    public static final String ROLEINTRODUCTION = " I am a teacher. ";
+    public static final String CLASSINTRODUCTION = "I teach Class ";
     List<Klass> klasses;
     public Teacher(Integer id, String name, Integer age) {
         super(id, name, age);
@@ -13,12 +15,12 @@ public class Teacher extends Person{
     }
 
     public String introduce() {
-//        klasses.stream().
-//                collect(Collectors.joining(", ");
-        return klasses.stream()
-                .mapToInt(klass -> klass.getNumber())
-                .toString();
-//       return super.introduce()+ " I am a teacher. I teach Class ";
+
+        String klassString=  klasses.stream()
+                .map(klass -> klass.getNumber().toString())
+                .collect(Collectors.joining(", "))
+            ;
+        return super.introduce()+ROLEINTRODUCTION+CLASSINTRODUCTION+klassString+'.';
     }
 
     public void assignTo(Klass klass){
