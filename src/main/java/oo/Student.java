@@ -5,6 +5,7 @@ import javax.management.relation.Role;
 public class Student extends Person{
     public static final String ROLE_INTRODUCTION = " I am a student.";
     public static final String CLASS_INTRODUCTION = " I am in class %d.";
+    public static final String LEADER_INTRODUCTION = " I am the leader of class %d.";
     public static final String DOT = ".";
     private Klass klass;
 
@@ -16,7 +17,10 @@ public class Student extends Person{
 
     public String introduce() {
         String classIntroduction=this.klass==null?"":String.format(CLASS_INTRODUCTION,klass.getNumber());
-        return super.introduce()+ ROLE_INTRODUCTION +classIntroduction;
+        String leaderIntroduction= this.getKlass().isLeader(this)
+                ? String.format(LEADER_INTRODUCTION,klass.getNumber())
+                : classIntroduction;
+        return super.introduce()+ ROLE_INTRODUCTION + leaderIntroduction;
     }
 
     public Klass getKlass() {
